@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Categories - ChapterOne: Explore Books by Category">
+    <title>Categories | ChapterOne</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .filter-section {
+            margin-bottom: 20px;
+        }
+
+        .filter-section label {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .filter-section select {
+            padding: 8px;
+            font-size: 1em;
+        }
+
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .book {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 23%;
+        }
+
+        .book h3 {
+            font-size: 1.2em;
+            margin: 0 0 10px 0;
+        }
+
+        .book p {
+            font-size: 1em;
+            margin: 0;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function filterBooks() {
+            const filterValue = document.getElementById('categoryFilter').value;
+            const books = document.querySelectorAll('.book');
+            
+            books.forEach(book => {
+                const category = book.getAttribute('data-category');
+                if (filterValue === 'all' || category === filterValue) {
+                    book.style.display = 'block';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>ChapterOne</h1>
+    </header>
+
+    <div class="container">
+        <section class="filter-section">
+            <label for="categoryFilter">Filter by Category:</label>
+            <select id="categoryFilter" onchange="filterBooks()">
+                <option value="all">All</option>
+                <option value="fiction">Fiction</option>
+                <option value="non-fiction">Non-Fiction</option>
+                <option value="mystery">Mystery</option>
+                <option value="self-help">Self-Help</option>
+                <option value="science">Science</option>
+            </select>
+        </section>
+
+        <section class="book-list">
+            <div class="book" data-category="fiction">
+                <h3>The Great Gatsby</h3>
+                <p>F. Scott Fitzgerald</p>
+                <p>Fiction</p>
+            </div>
+
+            <div class="book" data-category="non-fiction">
+                <h3>Sapiens: A Brief History of Humankind</h3>
+                <p>Yuval Noah Harari</p>
+                <p>Non-Fiction</p>
+            </div>
+
+            <div class="book" data-category="mystery">
+                <h3>The Girl with the Dragon Tattoo</h3>
+                <p>Stieg Larsson</p>
+                <p>Mystery</p>
+            </div>
+
+            <div class="book" data-category="self-help">
+                <h3>Atomic Habits</h3>
+                <p>James Clear</p>
+                <p>Self-Help</p>
+            </div>
+
+            <div class="book" data-category="science">
+                <h3>A Brief History of Time</h3>
+                <p>Stephen Hawking</p>
+                <p>Science</p>
+            </div>
+
+            <div class="book" data-category="fiction">
+                <h3>1984</h3>
+                <p>George Orwell</p>
+                <p>Fiction</p>
+            </div>
+
+            <div class="book" data-category="non-fiction">
+                <h3>Educated</h3>
+                <p>Tara Westover</p>
+                <p>Non-Fiction</p>
+            </div>
+
+            <div class="book" data-category="mystery">
+                <h3>The Da Vinci Code</h3>
+                <p>Dan Brown</p>
+                <p>Mystery</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 ChapterOne. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
