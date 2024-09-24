@@ -1,0 +1,175 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: #2c3e50;
+    color: white;
+}
+
+.header h1 {
+    font-size: 2rem;
+}
+
+.nav-bar ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-bar ul li {
+    margin: 0 15px;
+}
+
+.nav-bar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-bar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('https://via.placeholder.com/1600x600');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+}
+
+.hero h2 {
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+.cta-button {
+    background-color: #e67e22;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #d35400;
+}
+
+/* Featured Books Section */
+.featured-books {
+    padding: 50px 10%;
+    text-align: center;
+}
+
+.featured-books h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.book-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.book-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    width: 200px;
+}
+
+.book-card img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.book-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.book-card p {
+    color: #e67e22;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.add-to-cart {
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-to-cart:hover {
+    background-color: #1abc9c;
+}
+
+/* Footer */
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.social-media a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5rem;
+}
+
+.social-media a:hover {
+    color: #e67e22;
+}
+
+
+.cart-items {
+    padding: 20px;
+    text-align: center;
+}
+
+.cart-item {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.cart-item p {
+    color: #e67e22;
+    font-size: 1.2rem;
+}
