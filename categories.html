@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Categories - ChapterOne: Explore Books by Category">
-    <title>Categories | ChapterOne</title>
+    <meta name="description" content="Explore a wide range of books categorized for easy browsing at ChapterOne.">
+    <title>Categories | ChapterOne Bookstore</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -71,6 +71,15 @@
             margin: 0;
         }
 
+        .add-to-cart {
+            margin-top: 10px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
         footer {
             background-color: #2c3e50;
             color: white;
@@ -80,10 +89,11 @@
         }
     </style>
     <script>
+        // Function to filter books based on category
         function filterBooks() {
             const filterValue = document.getElementById('categoryFilter').value;
             const books = document.querySelectorAll('.book');
-            
+
             books.forEach(book => {
                 const category = book.getAttribute('data-category');
                 if (filterValue === 'all' || category === filterValue) {
@@ -93,80 +103,152 @@
                 }
             });
         }
+
+        // Function to add books to the cart
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItemIndex = cart.findIndex(item => item.name === name);
+
+            if (existingItemIndex !== -1) {
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                cart.push({ name: name, price: price, quantity: 1 });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} has been added to your cart.`);
+        }
     </script>
 </head>
 
 <body>
     <header>
-        <h1>ChapterOne</h1>
+        <h1>ChapterOne Bookstore</h1>
     </header>
 
     <div class="container">
         <section class="filter-section">
             <label for="categoryFilter">Filter by Category:</label>
             <select id="categoryFilter" onchange="filterBooks()">
-                <option value="all">All</option>
+                <option value="all">All Categories</option>
                 <option value="fiction">Fiction</option>
                 <option value="non-fiction">Non-Fiction</option>
                 <option value="mystery">Mystery</option>
                 <option value="self-help">Self-Help</option>
                 <option value="science">Science</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="romance">Romance</option>
+                <option value="history">History</option>
+                <option value="biography">Biography</option>
+                <option value="children">Children</option>
+                <option value="young-adult">Young Adult</option>
+                <option value="poetry">Poetry</option>
             </select>
         </section>
 
         <section class="book-list">
+            <!-- Fiction -->
             <div class="book" data-category="fiction">
                 <h3>The Great Gatsby</h3>
                 <p>F. Scott Fitzgerald</p>
-                <p>Fiction</p>
+                <p>Price: $15</p>
+                <button class="add-to-cart" onclick="addToCart('The Great Gatsby', 15)">Add to Cart</button>
             </div>
-
-            <div class="book" data-category="non-fiction">
-                <h3>Sapiens: A Brief History of Humankind</h3>
-                <p>Yuval Noah Harari</p>
-                <p>Non-Fiction</p>
-            </div>
-
-            <div class="book" data-category="mystery">
-                <h3>The Girl with the Dragon Tattoo</h3>
-                <p>Stieg Larsson</p>
-                <p>Mystery</p>
-            </div>
-
-            <div class="book" data-category="self-help">
-                <h3>Atomic Habits</h3>
-                <p>James Clear</p>
-                <p>Self-Help</p>
-            </div>
-
-            <div class="book" data-category="science">
-                <h3>A Brief History of Time</h3>
-                <p>Stephen Hawking</p>
-                <p>Science</p>
-            </div>
-
             <div class="book" data-category="fiction">
                 <h3>1984</h3>
                 <p>George Orwell</p>
-                <p>Fiction</p>
+                <p>Price: $12</p>
+                <button class="add-to-cart" onclick="addToCart('1984', 12)">Add to Cart</button>
+            </div>
+            <div class="book" data-category="fiction">
+                <h3>To Kill a Mockingbird</h3>
+                <p>Harper Lee</p>
+                <p>Price: $10</p>
+                <button class="add-to-cart" onclick="addToCart('To Kill a Mockingbird', 10)">Add to Cart</button>
+            </div>
+            <div class="book" data-category="fiction">
+                <h3>Brave New World</h3>
+                <p>Aldous Huxley</p>
+                <p>Price: $14</p>
+                <button class="add-to-cart" onclick="addToCart('Brave New World', 14)">Add to Cart</button>
             </div>
 
+            <!-- Non-Fiction -->
+            <div class="book" data-category="non-fiction">
+                <h3>Sapiens: A Brief History of Humankind</h3>
+                <p>Yuval Noah Harari</p>
+                <p>Price: $20</p>
+                <button class="add-to-cart" onclick="addToCart('Sapiens: A Brief History of Humankind', 20)">Add to Cart</button>
+            </div>
             <div class="book" data-category="non-fiction">
                 <h3>Educated</h3>
                 <p>Tara Westover</p>
-                <p>Non-Fiction</p>
+                <p>Price: $18</p>
+                <button class="add-to-cart" onclick="addToCart('Educated', 18)">Add to Cart</button>
             </div>
 
+            <!-- Mystery -->
             <div class="book" data-category="mystery">
-                <h3>The Da Vinci Code</h3>
-                <p>Dan Brown</p>
-                <p>Mystery</p>
+                <h3>The Girl with the Dragon Tattoo</h3>
+                <p>Stieg Larsson</p>
+                <p>Price: $17</p>
+                <button class="add-to-cart" onclick="addToCart('The Girl with the Dragon Tattoo', 17)">Add to Cart</button>
             </div>
+            <div class="book" data-category="mystery">
+                <h3>Gone Girl</h3>
+                <p>Gillian Flynn</p>
+                <p>Price: $16</p>
+                <button class="add-to-cart" onclick="addToCart('Gone Girl', 16)">Add to Cart</button>
+            </div>
+
+            <!-- Science -->
+            <div class="book" data-category="science">
+                <h3>A Brief History of Time</h3>
+                <p>Stephen Hawking</p>
+                <p>Price: $25</p>
+                <button class="add-to-cart" onclick="addToCart('A Brief History of Time', 25)">Add to Cart</button>
+            </div>
+            <div class="book" data-category="science">
+                <h3>The Selfish Gene</h3>
+                <p>Richard Dawkins</p>
+                <p>Price: $22</p>
+                <button class="add-to-cart" onclick="addToCart('The Selfish Gene', 22)">Add to Cart</button>
+            </div>
+
+            <!-- Fantasy -->
+            <div class="book" data-category="fantasy">
+                <h3>The Hobbit</h3>
+                <p>J.R.R. Tolkien</p>
+                <p>Price: $15</p>
+                <button class="add-to-cart" onclick="addToCart('The Hobbit', 15)">Add to Cart</button>
+            </div>
+            <div class="book" data-category="fantasy">
+                <h3>Harry Potter and the Sorcerer's Stone</h3>
+                <p>J.K. Rowling</p>
+                <p>Price: $20</p>
+                <button class="add-to-cart" onclick="addToCart('Harry Potter and the Sorcerer\'s Stone', 20)">Add to Cart</button>
+            </div>
+
+            <!-- Self-Help -->
+            <div class="book" data-category="self-help">
+                <h3>Atomic Habits</h3>
+                <p>James Clear</p>
+                <p>Price: $18</p>
+                <button class="add-to-cart" onclick="addToCart('Atomic Habits', 18)">Add to Cart</button>
+            </div>
+            <div class="book" data-category="self-help">
+                <h3>The Power of Now</h3>
+                <p>Eckhart Tolle</p>
+                <p>Price: $14</p>
+                <button class="add-to-cart" onclick="addToCart('The Power of Now', 14)">Add to Cart</button>
+            </div>
+
+            <!-- Add more categories and books as necessary -->
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2024 ChapterOne. All rights reserved.</p>
+        <p>&copy; 2024 ChapterOne Bookstore. All rights reserved.</p>
     </footer>
 </body>
 
