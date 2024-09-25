@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | ChapterOne</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <h1>ChapterOne Bookstore</h1>
+        <nav>
+            <a href="#">Home</a> |
+            <a href="#">Books</a> |
+            <a href="#">Cart</a>
+            <div class="profile-container">
+                <div class="profile-icon" id="profileIcon">👤</div>
+                <div class="dropdown" id="dropdownMenu">
+                    <a href="#" id="profileLink">Profile</a>
+                    <a href="#" id="signOutLink">Sign Out</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <h2>Login to ChapterOne</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <input type="checkbox" id="showPassword"> Show Password
+            </div>
+
+            <button type="submit">Login</button>
+            <p id="errorMessage" class="error-message"></p>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

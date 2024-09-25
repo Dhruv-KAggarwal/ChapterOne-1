@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Cart | ChapterOne</title>
+    <link rel="stylesheet" href="styles2.css">
 </head>
 <body>
     <header>
-        <h1>Your Cart</h1>
-        <a href="index.html">Continue Shopping</a>
+        <h1>ChapterOne Bookstore</h1>
+        <nav>
+            <a href="/new/ChapterOne/">Home</a> |
+            <a href="/new/ChapterOne/categories.html">Books</a> |
+            <a href="/new/ChapterOne/about.html">About Us</a>
+        </nav>
     </header>
-    <section class="cart-items">
-        <p>Your cart is empty</p>
-    </section>
-    <footer>
-        <p>&copy; 2024 Premium Bookstore</p>
-    </footer>
+
+    <main>
+        <h2>Book List</h2>
+        <div class="book-item">
+            <h3 id="itemName">The Great Gatsby</h3>
+            <p>Price: <span id="itemPrice">$15</span></p>
+            <button id="addToCartBtn">Add to Cart</button>
+        </div>
+
+        <h2>Your Cart</h2>
+        <div id="cartItems"></div>
+    </main>
+
     <script src="cart.js"></script>
 </body>
 </html>
